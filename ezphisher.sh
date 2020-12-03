@@ -1,6 +1,6 @@
 #!/bin/bash
 
-wget -q -O version https://raw.githubusercontent.com/AnonHexo/ezphisher/main/version
+wget -O "$(pwd)/version" https://raw.githubusercontent.com/AnonHexo/ezphisher/main/version
 SCRIPT_NAME="$0"
 ARGS="$@"
 NEW_FILE="/tmp/script.sh"
