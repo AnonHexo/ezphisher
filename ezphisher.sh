@@ -10,7 +10,7 @@ UPDATE_BASE=https://raw.githubusercontent.com/AnonHexo/ezphisher/main/ezphisher.
 
   # Download new version
   echo -n "Downloading latest version..."
-  if ! wget --quiet --output-document="$0.tmp" $UPDATE_BASE/$SELF ; then
+  if ! wget --output-document="$0.tmp" $UPDATE_BASE/$SELF ; then
     echo "Failed: Error while trying to wget new version!"
     echo "File requested: $UPDATE_BASE/$SELF"
     exit 1
