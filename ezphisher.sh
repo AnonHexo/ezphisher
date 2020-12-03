@@ -1,27 +1,33 @@
 #!/bin/bash
 
-SCRIPT=$(readlink -f "$0")
-SCRIPTPATH=$(dirname "$SCRIPT")
-SCRIPTNAME="$0"
+SCRIPT_NAME="$0"
 ARGS="$@"
-BRANCH="Your_git_branch"
+NEW_FILE="/tmp/script.sh"
+VERSION=`cat version`
 
-self_update() {
-    cd $SCRIPTPATH
-    git fetch
+check_upgrade () {
 
-    [ -n $(git diff --name-only origin/$BRANCH | grep $SCRIPTNAME) ] && {
-        echo "Found a new version of me, updating myself..."
-        git pull --force
-        git checkout $BRANCH
-        git pull --force
-        echo "Running the new version..."
-        exec "$SCRIPTNAME" "$@"
+  # check if there is a new version of this file
+  # here, hypothetically we check if a file exists in the disk.
+  # it could be an apt/yum check or whatever...
+  [ -f "$NEW_FILE" ] && {
 
-        # Now exit this old instance
-        exit 1
-    }
-    echo "Already the latest version."
+    # install a new version of this file or package
+    # again, in this example, this is done by just copying the new file
+    echo "Found an update, updating..."
+    cp "$NEW_FILE" "$SCRIPT_NAME"
+    rm -f "$NEW_FILE"
+
+    # note that at this point this file was overwritten in the disk
+    # now run this very own file, in its new version!
+    echo "Running the new version..."
+    $SCRIPT_NAME $ARGS
+
+    # now exit this old instance
+    exit 0
+  }
+
+  echo "$VERSION is already the latest version!"
 }
 
 main() {
@@ -647,5 +653,5 @@ menu
 
 }
 
-self_update
+check_upgrade
 main
