@@ -1,5 +1,5 @@
 #!/bin/bash
-
+clear
 ## ANSI colors (FG & BG)
 RED="$(printf '\033[31m')"  GREEN="$(printf '\033[32m')"  ORANGE="$(printf '\033[33m')"  BLUE="$(printf '\033[34m')"
 MAGENTA="$(printf '\033[35m')"  CYAN="$(printf '\033[36m')"  WHITE="$(printf '\033[37m')" BLACK="$(printf '\033[30m')"
@@ -52,11 +52,11 @@ kill_pid() {
 ## Banner
 banner() {
 	cat <<- EOF
-		${ORANGE}▄███▄   ▄▄▄▄▄▄   █ ▄▄   ▄  █ ▄█    ▄▄▄▄▄    ▄  █ ▄███▄   █▄▄▄▄ 
-		${ORANGE}█▀   ▀ ▀   ▄▄▀   █   █ █   █ ██   █     ▀▄ █   █ █▀   ▀  █  ▄▀ 
-		${ORANGE}██▄▄    ▄▀▀   ▄▀ █▀▀▀  ██▀▀█ ██ ▄  ▀▀▀▀▄   ██▀▀█ ██▄▄    █▀▀▌  
-		${ORANGE}█▄   ▄▀ ▀▀▀▀▀▀   █     █   █ ▐█  ▀▄▄▄▄▀    █   █ █▄   ▄▀ █  █  
-		${ORANGE}▀███▀             █       █   ▐               █  ▀███▀     █   
+		${ORANGE} ▄███▄   ▄▄▄▄▄▄   █ ▄▄   ▄  █ ▄█    ▄▄▄▄▄    ▄  █ ▄███▄   █▄▄▄▄ 
+		${ORANGE} █▀   ▀ ▀   ▄▄▀   █   █ █   █ ██   █     ▀▄ █   █ █▀   ▀  █  ▄▀ 
+		${ORANGE} ██▄▄    ▄▀▀   ▄▀ █▀▀▀  ██▀▀█ ██ ▄  ▀▀▀▀▄   ██▀▀█ ██▄▄    █▀▀▌  
+		${ORANGE} █▄   ▄▀ ▀▀▀▀▀▀   █     █   █ ▐█  ▀▄▄▄▄▀    █   █ █▄   ▄▀ █  █  
+		${ORANGE} ▀███▀             █       █   ▐               █  ▀███▀     █   
             		   ▀     ▀                   ▀            ▀    
 				${GREEN}[-] Tool Developed by AnonHexo${WHITE}
 	EOF
