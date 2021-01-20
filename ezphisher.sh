@@ -1,38 +1,6 @@
 #!/bin/bash
 
-wget -O "$(pwd)/version" https://raw.githubusercontent.com/AnonHexo/ezphisher/main/version
-SCRIPT_NAME="$0"
-ARGS="$@"
-NEW_FILE="/tmp/script.sh"
-VERSION=`cat version`
-
-check_upgrade () {
-
-  # check if there is a new version of this file
-  # here, hypothetically we check if a file exists in the disk.
-  # it could be an apt/yum check or whatever...
-  [ -f "$NEW_FILE" ] && {
-
-    # install a new version of this file or package
-    # again, in this example, this is done by just copying the new file
-    echo "Found an update, updating..."
-    cp "$NEW_FILE" "$SCRIPT_NAME"
-    rm -f "$NEW_FILE"
-
-    # note that at this point this file was overwritten in the disk
-    # now run this very own file, in its new version!
-    echo "Running the new version..."
-    $SCRIPT_NAME $ARGS
-
-    # now exit this old instance
-    exit 0
-  }
-
-  echo "$VERSION is already the latest version!"
-}
-
-main() {
-   trap 'printf "\n";stop;exit 1' 2
+trap 'printf "\n";stop;exit 1' 2
 trap user_interrupt SIGINT
 trap user_interrupt SIGTSTP
 
@@ -653,6 +621,3 @@ reqs
 menu
 
 }
-
-check_upgrade
-main
