@@ -1,14 +1,12 @@
 # ezphisher v1.1
-*the perfect script to create easy phishing sites in* **termux**
+*the perfect script to create easy phishing sites in* **bash**
 
 <br>
 
-![main](https://raw.githubusercontent.com/AnonHexo/ezphisher/main/.images/main.jpeg)
-![attack](https://raw.githubusercontent.com/AnonHexo/ezphisher/main/.images/attack.jpeg)
+<img src="https://raw.githubusercontent.com/AnonHexo/ezphisher/main/.images/main.jpeg" width="500" height="700"></img>
+<img src="https://raw.githubusercontent.com/AnonHexo/ezphisher/main/.images/attack.jpeg" width="500" height="700"></img>
 
 <br>
 
->How to use:
-- *copy this command and paste it on termux*
-  - `apt update ; apt install git curl wget php -y ; git clone https://github.com/AnonHexo/ezphisher ; cd ezphisher ; bash ezphisher.sh` 
-  -  and done!
+>Termux and Linux emulators:
+>- `apt update ; apt install git curl wget php -y ; git clone https://github.com/AnonHexo/ezphisher ; cd ezphisher ; bash ezphisher.sh`
