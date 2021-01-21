@@ -156,7 +156,7 @@ install_ngrok() {
 ## Exit message
 msg_exit() {
 	{ clear; banner; echo; }
-	echo -e "${GREENBG}${BLACK}Check out https://github.com/AnonHexo for more...${RESETBG}\n"
+	echo -e "${GREENBG}${BLACK}Check out https://github.com/AnonHexo for more.${RESETBG}\n"
 	{ reset_color; exit 0; }
 }
 
