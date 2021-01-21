@@ -205,7 +205,7 @@ capture_ip() {
 	echo -e "${RED}[${WHITE}-${RED}]${GREEN} Victim's IP: ${MAGENTA}$IP"
 	echo -e "${RED}[${WHITE}-${RED}]${GREEN} Saved in: ${BLUE}ip.txt"
 	cat .server/www/ip.txt >> ip.txt
-	echo -e "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Login Information, ${BLUE}Ctrl + C ${ORANGE}to exit. "
+	echo -e "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Login Information, ${BLUE}Ctrl + C ${ORANGE}to exit...\n"
 }
 
 ## Get credentials
@@ -216,12 +216,12 @@ capture_creds() {
 	echo -e "${RED}[${WHITE}-${RED}]${GREEN} Password : ${MAGENTA}$PASSWORD"
 	echo -e "${RED}[${WHITE}-${RED}]${GREEN} Saved in : ${BLUE}usernames.dat"
 	cat .server/www/usernames.txt >> usernames.dat
-	echo -e "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Other Information, ${BLUE}Ctrl + C ${ORANGE}to exit. "
+	echo -e "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Other Information, ${BLUE}Ctrl + C ${ORANGE}to exit.\n"
 }
 
 ## Print data
 capture_data() {
-	echo -e "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Information, ${BLUE}Ctrl + C ${ORANGE}to exit..."
+	echo -e "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Information, ${BLUE}Ctrl + C ${ORANGE}to exit.\n"
 	while true; do
 		if [[ -e ".server/www/ip.txt" ]]; then
 			capture_ip
