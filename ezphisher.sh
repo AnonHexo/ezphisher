@@ -102,7 +102,7 @@ banner() {
 		${ORANGE}  █▄   ▄▀ ▀▀▀▀▀▀   █     █   █ ▐█  ▀▄▄▄▄▀    █   █ █▄   ▄▀ █  █  
 		${ORANGE}  ▀███▀             █       █   ▐               █  ▀███▀     █   
 		${ORANGE}                                                                 
-                                ${WHITE} 		v1.1
+                                ${WHITE} 		v$VERSION
 	EOF
 }
 
@@ -111,7 +111,7 @@ banner_small() {
 	cat <<- EOF
 	${ORANGE}	█▀▀ ▀█ █▀█ █ █ █ █▀ █ █ █▀▀ █▀█
 	${ORANGE}	██▄ █▄ █▀▀ █▀█ █ ▄█ █▀█ ██▄ █▀▄
-                                ${WHITE} 	v1.1
+                                ${WHITE} 	v$VERSION
 	EOF
 }
 
@@ -211,7 +211,7 @@ about() {
 	cat <<- EOF
 		${GREEN}Author   ${RED}:  ${ORANGE}AnonHexo
 		${GREEN}GitHub   ${RED}:  ${ORANGE}https://github.com/AnonHexo/ezphisher
-		${GREEN}Version  ${RED}:  ${ORANGE}1.1
+		${GREEN}Version  ${RED}:  ${ORANGE}$VERSION
 
 		${REDBG}${WHITE} Created for information purposes and not for illegal uses.${RESETBG}
 
