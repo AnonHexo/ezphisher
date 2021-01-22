@@ -12,6 +12,7 @@ update() {
 	echo "removed ezphisher folder"
 	git clone -b self-update $UPDATE_BASE
 	cd ezphisher
+	echo "into the dir"
 	bash ezphisher.sh
 	echo "runned script"
 }
