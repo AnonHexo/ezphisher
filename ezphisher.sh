@@ -41,6 +41,7 @@ exec /bin/bash updateScript.sh
 
 if [$VERSION != $NEW_VERSION]; then
 	update
+	VERSION=$NEW_VERSION
 fi
 
 clear
