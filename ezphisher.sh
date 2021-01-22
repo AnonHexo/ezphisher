@@ -6,11 +6,14 @@ NEW_VERSION="$(wget https://raw.githubusercontent.com/AnonHexo/EZPhisher/self-up
 
 update() {
 	echo "$NEW_VERSION" > .version
-	cd $HOME
+	echo "saved new version ($NEW_VERSION) to .version file $(cat .version)"
+	cd ..
 	rm -rf ezphisher
+	echo "removed ezphisher folder"
 	git clone -b self-update $UPDATE_BASE
 	cd ezphisher
 	bash ezphisher.sh
+	echo "runned script"
 }
 
 check_update() {
