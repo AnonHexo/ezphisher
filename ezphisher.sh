@@ -1,5 +1,5 @@
 #!/bin/bash
-UPDATE_BASE="https://github.com/AnonHexo/EZPhisher"
+UPDATE_BASE="https://github.com/AnonHexo/ezphisher"
 VERSION="$(cat .version)"
 rm .version
 NEW_VERSION="$(wget https://raw.githubusercontent.com/AnonHexo/EZPhisher/self-update/.version -O -)"
