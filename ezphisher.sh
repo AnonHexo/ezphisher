@@ -5,6 +5,8 @@ rm .version
 NEW_VERSION="$(wget https://raw.githubusercontent.com/AnonHexo/EZPhisher/self-update/.version -O -)"
 
 update() {
+	VERSION=$NEW_VERSION
+	echo "$VERSION" > .version
 	cd $HOME
 	rm -rf ezphisher
 	git clone -b self-update $UPDATE_BASE
@@ -15,8 +17,6 @@ update() {
 check_update() {
 	if [ "$VERSION" != "$NEW_VERSION" ]; then
 		update
-		VERSION=$NEW_VERSION
-		echo "$VERSION" > .version
 	else 
 		echo "updated"
 	fi
