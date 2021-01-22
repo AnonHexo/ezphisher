@@ -1,8 +1,8 @@
 #!/bin/bash
 SELF=$(basename $0)
-UPDATE_BASE="https://github.com/AnonHexo/EZPhisher/raw/self-update/ezphisher.sh"
+UPDATE_BASE="https://raw.githubusercontent.com/AnonHexo/EZPhisher/self-update/ezphisher.sh"
 VERSION="1.1"
-NEW_VERSION=$(wget https://github.com/AnonHexo/EZPhisher/raw/self-update/.version -q -O -)
+NEW_VERSION=$(wget https://raw.githubusercontent.com/AnonHexo/EZPhisher/self-update/.version -q -O -)
 
 update() {
 	echo "Performing self-update..."
