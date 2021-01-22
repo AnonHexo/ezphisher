@@ -17,6 +17,8 @@ check_update() {
 		update
 		VERSION=$NEW_VERSION
 		echo "$VERSION" > .version
+	else 
+		echo "updated"
 	fi
 }
 
