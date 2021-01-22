@@ -8,8 +8,9 @@ update() {
 	cd $HOME
 	rm -rf ezphisher
 	git clone -b self-update $UPDATE_BASE
-	cd ezphisher
-	bash ezphihser.sh
+	cd self-update
+	# cd ezphisher
+	bash ezphisher.sh
 }
 
 check_update() {
