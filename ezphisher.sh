@@ -1,7 +1,8 @@
 #!/bin/bash
 UPDATE_BASE="https://raw.githubusercontent.com/AnonHexo/EZPhisher/self-update/ezphisher.sh"
 VERSION="$(cat .version)"
-NEW_VERSION="$(wget https://raw.githubusercontent.com/AnonHexo/EZPhisher/self-update/.version -q -O -)"
+rm .version
+NEW_VERSION="$(wget https://raw.githubusercontent.com/AnonHexo/EZPhisher/self-update/.version -O -)"
 
 update() {
 	cd $HOME
