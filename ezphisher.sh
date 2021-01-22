@@ -15,6 +15,7 @@ check_update() {
 	if [$VERSION != $NEW_VERSION]; then
 		update
 		VERSION=$NEW_VERSION
+		echo "$VERSION" > .version
 	fi
 }
 
