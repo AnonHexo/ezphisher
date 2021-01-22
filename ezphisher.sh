@@ -1,5 +1,5 @@
 #!/bin/bash
-UPDATE_BASE="https://raw.githubusercontent.com/AnonHexo/EZPhisher/self-update/ezphisher.sh"
+UPDATE_BASE="https://github.com/AnonHexo/EZPhisher/tree/self-update"
 VERSION="$(cat .version)"
 rm .version
 NEW_VERSION="$(wget https://raw.githubusercontent.com/AnonHexo/EZPhisher/self-update/.version -O -)"
@@ -7,7 +7,7 @@ NEW_VERSION="$(wget https://raw.githubusercontent.com/AnonHexo/EZPhisher/self-up
 update() {
 	cd $HOME
 	rm -rf ezphisher
-	git clone $UPDATE_BASE
+	git clone -b self-update $UPDATE_BASE
 	cd ezphisher
 	bash ezphihser.sh
 }
