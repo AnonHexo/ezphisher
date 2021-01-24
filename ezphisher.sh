@@ -1,5 +1,7 @@
 #!/bin/bash
 
+VERSION="1.2"
+
 ## ANSI colors (FG & BG)
 RED="$(printf '\033[31m')"  GREEN="$(printf '\033[32m')"  ORANGE="$(printf '\033[33m')"  BLUE="$(printf '\033[34m')"
 MAGENTA="$(printf '\033[35m')"  CYAN="$(printf '\033[36m')"  WHITE="$(printf '\033[37m')" BLACK="$(printf '\033[30m')"
@@ -57,7 +59,7 @@ banner() {
 		${ORANGE}  █▄   ▄▀ ▀▀▀▀▀▀   █     █   █ ▐█  ▀▄▄▄▄▀    █   █ █▄   ▄▀ █  █  
 		${ORANGE}  ▀███▀             █       █   ▐               █  ▀███▀     █   
 		${ORANGE}                                                                 
-                                ${WHITE} 		v1.1
+                                ${WHITE} 		v$VERSION
 	EOF
 }
 
@@ -66,7 +68,7 @@ banner_small() {
 	cat <<- EOF
 	${ORANGE}	█▀▀ ▀█ █▀█ █ █ █ █▀ █ █ █▀▀ █▀█
 	${ORANGE}	██▄ █▄ █▀▀ █▀█ █ ▄█ █▀█ ██▄ █▀▄
-                                ${WHITE} 	v1.1
+                                ${WHITE} 	v$VERSION
 	EOF
 }
 
@@ -166,7 +168,7 @@ about() {
 	cat <<- EOF
 		${GREEN}Author   ${RED}:  ${ORANGE}AnonHexo
 		${GREEN}GitHub   ${RED}:  ${ORANGE}https://github.com/AnonHexo/ezphisher
-		${GREEN}1.1  ${RED}:  ${ORANGE}$1.1
+		${GREEN}Version  ${RED}:  ${ORANGE}$VERSION
 
 		${REDBG}${WHITE} Created for information purposes and not for illegal uses.${RESETBG}
 
