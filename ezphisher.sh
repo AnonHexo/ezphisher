@@ -451,7 +451,7 @@ main_menu() {
 		${RED}[${WHITE}09${RED}]${ORANGE} Playstation   ${RED}[${WHITE}19${RED}]${ORANGE} Reddit       ${RED}[${WHITE}29${RED}]${ORANGE} Vk
 		${RED}[${WHITE}10${RED}]${ORANGE} Tiktok        ${RED}[${WHITE}20${RED}]${ORANGE} Adobe        ${RED}[${WHITE}30${RED}]${ORANGE} XBOX
 
-		${RED}[${WHITE}99${RED}]${ORANGE} About         ${RED}[${WHITE}00${RED}]${ORANGE} Exit
+		${RED}[${WHITE}99${RED}]${ORANGE} About         ${RED}[${WHITE}00${RED}]${ORANGE} Exit         ${RED}[${WHITE}74${RED}]${ORANGE} Update
 
 	EOF
 	
@@ -573,6 +573,9 @@ main_menu() {
 		about
 	elif [[ "$REPLY" == 0 || "$REPLY" == 00 ]]; then
 		msg_exit
+	elif [[ "$REPLY" == 99 ]]; then
+		cd .core
+		bash update.sh
 	else
 		echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
 		{ sleep 1; main_menu; }
