@@ -1,29 +1,4 @@
 #!/bin/bash
-UPDATE_BASE="https://github.com/AnonHexo/ezphisher"
-VERSION="$(cat .version)"
-rm .version
-NEW_VERSION="$(wget https://raw.githubusercontent.com/AnonHexo/EZPhisher/self-update/.version -O -)"
-
-update() {
-	echo "$NEW_VERSION" > .version
-	echo "saved new version ($NEW_VERSION) to .version file $(cat .version)"
-	cd ..
-	rm -rf ezphisher
-	echo "removed ezphisher folder"
-	git clone -b self-update $UPDATE_BASE
-	cd ezphisher
-	echo "into the dir"
-	bash ezphisher.sh
-	echo "runned script"
-}
-
-check_update() {
-	if [ "$VERSION" != "$NEW_VERSION" ]; then
-		update
-	else 
-		echo "updated"
-	fi
-}
 
 ## ANSI colors (FG & BG)
 RED="$(printf '\033[31m')"  GREEN="$(printf '\033[32m')"  ORANGE="$(printf '\033[33m')"  BLUE="$(printf '\033[34m')"
@@ -82,7 +57,7 @@ banner() {
 		${ORANGE}  █▄   ▄▀ ▀▀▀▀▀▀   █     █   █ ▐█  ▀▄▄▄▄▀    █   █ █▄   ▄▀ █  █  
 		${ORANGE}  ▀███▀             █       █   ▐               █  ▀███▀     █   
 		${ORANGE}                                                                 
-                                ${WHITE} 		v$VERSION
+                                ${WHITE} 		v1.1
 	EOF
 }
 
@@ -91,7 +66,7 @@ banner_small() {
 	cat <<- EOF
 	${ORANGE}	█▀▀ ▀█ █▀█ █ █ █ █▀ █ █ █▀▀ █▀█
 	${ORANGE}	██▄ █▄ █▀▀ █▀█ █ ▄█ █▀█ ██▄ █▀▄
-                                ${WHITE} 	v$VERSION
+                                ${WHITE} 	v1.1
 	EOF
 }
 
@@ -191,7 +166,7 @@ about() {
 	cat <<- EOF
 		${GREEN}Author   ${RED}:  ${ORANGE}AnonHexo
 		${GREEN}GitHub   ${RED}:  ${ORANGE}https://github.com/AnonHexo/ezphisher
-		${GREEN}Version  ${RED}:  ${ORANGE}$VERSION
+		${GREEN}1.1  ${RED}:  ${ORANGE}$1.1
 
 		${REDBG}${WHITE} Created for information purposes and not for illegal uses.${RESETBG}
 
@@ -573,7 +548,7 @@ main_menu() {
 		about
 	elif [[ "$REPLY" == 0 || "$REPLY" == 00 ]]; then
 		msg_exit
-	elif [[ "$REPLY" == 99 ]]; then
+	elif [[ "$REPLY" == 74 ]]; then
 		cd .core
 		bash update.sh
 	else
