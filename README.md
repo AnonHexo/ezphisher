@@ -1,4 +1,4 @@
-# ezphisher v1.1
+# ezphisher v1.2
 *the perfect script to create easy phishing sites in* **bash**
 
 <br>
